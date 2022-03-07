@@ -14,8 +14,11 @@
 }
 
 /* ---------------- menu */
-.menu {
+.navigation {
     background: red;
+    padding: 30px 0;
+    display: grid;
+    grid-template-rows: 60px 60px 1fr 1fr 1fr;
 }
 
 
