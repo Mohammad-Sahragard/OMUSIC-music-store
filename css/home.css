@@ -1,0 +1,14 @@
+:root {
+    --important: #fff;
+    --low-important: #dad0d5;
+    --active: #21d762;
+    --background: #1f1f1f;
+    --background-menu: #15151560;
+    --background-blur: #dad0d540;
+
+    --logo: 25px;
+    --medium-text: 16px;
+    --title-text: 28px
+}
+
+/* ------------------ template current tab (home) */

@@ -2,27 +2,210 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: sans-serif;
+}
+
+:root {
+    --important: #fff;
+    --low-important: #dad0d5;
+    --active: #21d762;
+    --background: #1f1f1f;
+    --background-menu: #15151560;
+    --background-blur: #dad0d540;
+
+    --logo: 25px;
+    --medium-text: 16px;
+    --title-text: 28px
 }
 
 /* ------------------ template */
 .template {
-    background: lightcoral;
+    background: var(--background);
     height: 100vh;
     display: grid;
     grid-template-columns: 250px auto;
     animation: grid 1s infinite ease-in;
 }
+.template::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200px;
+    transform: translateY(-40%);
+    height: 90%;
+    aspect-ratio: .8;
+    background: radial-gradient(#f18fc090 10%, #ff4c97bf 50%, #2b45a55f 50%);
+    border-radius: 50%;
+    filter: blur(50px);
+}
 
 /* ---------------- menu */
 .navigation {
-    background: red;
+    background: var(--background-menu);
     padding: 30px 0;
     display: grid;
-    grid-template-rows: 60px 60px 1fr 1fr 1fr;
+    grid-template-rows: 60px 60px max-content max-content minmax(max-content, .7fr);
+    gap: 10px;
+    z-index: 900;
+}
+.nav-item {
+    padding: 0 30px;
+    font-size: var(--medium-text);
+}
+.title {
+    color: var(--low-important);
+    font-weight: normal;
+    font-size: var(--medium-text);
 }
 
 
-/* ---------------- current tab */
-.current-tab {
-    background: dodgerblue;
+.logo {                           /* logo */
+    display: flex;
+    align-items: center;
+}
+.logo__name {
+    display: flex;
+    gap: 10px;
+    font-size: var(--logo);
+    font-weight: 600;
+    color: var(--important);
+}
+
+
+.search-box {            /* search box */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.search-box__input {
+    width: 100%;
+    height: 70%;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background: var(--background-blur);
+    color: var(--important);
+    font-size: var(--medium-text);
+    padding-left: 35px;
+}
+.search-box__input::placeholder {
+    color: var(--low-important);
+}
+.search-box__icon {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    color: var(--important);
+}
+
+
+.menu {                    /* menu */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+.menu__bar {
+    display: grid;
+    grid-auto-rows: 30px;
+    gap: 5px;
+}
+.menu__menu-item-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.menu__menu-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--medium-text);
+    color: var(--low-important);
+    transition: all .3s;
+}
+.menu__menu-item:hover {
+    padding-left: 10px;
+}
+
+
+.menu--active .menu__menu-item {
+    color: var(--important);
+}
+.menu--active::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 80%;
+    border-radius: 5px 0 0 5px;
+    background: var(--active);
+}
+
+
+.library {                 /* library */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+}
+.library__bar {
+    display: grid;
+    grid-auto-rows: 30px;
+    gap: 5px;
+}
+.library__library-item-box {
+    display: flex;
+    align-items: center;
+}
+.library__library-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--medium-text);
+    color: var(--low-important);
+    transition: all .3s;
+}
+.library__library-item:hover {
+    padding-left: 10px;
+}
+
+
+.playlist {                 /* playlist */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+}
+.playlist__bar {
+    display: grid;
+    grid-auto-rows: 30px;
+    gap: 5px;
+}
+.playlist__playlist-item-box {
+    display: flex;
+    align-items: center;
+}
+.playlist__playlist-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--medium-text);
+    color: var(--low-important);
+    transition: all .3s;
+}
+.playlist__playlist-item:hover {
+    padding-left: 10px;
 }
